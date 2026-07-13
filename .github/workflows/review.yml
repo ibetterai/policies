@@ -1,0 +1,11 @@
+# Scaffolded by the control-plane worker (ADR 0009). The reviewer itself lives in
+# ibetterai/.github@main — this file is just the trigger, and holds no review logic.
+# Kill switch: set the org variable FLEET_REVIEWER_ENABLED=false (no code change needed).
+name: review
+on:
+  pull_request_target:
+    types: [opened, ready_for_review, reopened, synchronize]
+jobs:
+  review:
+    uses: ibetterai/.github/.github/workflows/pr-review-reusable.yml@main
+    secrets: inherit
