@@ -1,0 +1,11 @@
+# Scaffolded by the control plane (ADR 0007). This repo carries a `pipeline` tier, so the org
+# ruleset REQUIRES the `ci / build-test` and `ci / gitleaks` checks on every PR. Without this file
+# nothing produces those checks and NO PR in this repo can merge — which was the actual state of
+# this repo until 2026-07-13.
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request:
+jobs:
+  ci:
+    uses: ibetterai/.github/.github/workflows/ci-reusable.yml@main
